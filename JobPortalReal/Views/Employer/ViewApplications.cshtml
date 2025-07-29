@@ -1,0 +1,97 @@
+﻿@model IEnumerable<JobPortalReal.Models.JobApplication>
+@{
+    ViewData["Title"] = "View Applications";
+     var apiBaseUrl = ViewData["ApiBaseUrl"] as string;
+}
+
+<div class="card mt-5 mx-auto" style="max-width: 80%;">
+    <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
+        <h2 class="mb-0">View Applications</h2>
+        <a asp-action="Dashboard" class="btn btn-dark">Back to Dashboard</a>
+    </div>
+    <div class="card-body">
+        @if (!Model.Any())
+        {
+            <div class="alert alert-warning">
+                <strong>No Applications Found!</strong> Applications for this job will appear here.
+            </div>
+        }
+        else
+        {
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">Jobseeker Email</th>
+                        <th scope="col">Cover Letter</th>
+                        <th scope="col">Resume</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Applied Date</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var application in Model)
+                    {
+                        <tr>
+                            <td>@application.JobseekerName</td>
+                            <td>@application.CoverLetter</td>
+                            <td><a href="@application.ResumeUrl">Resume</a></td>
+                            <td>@application.Status</td> 
+                                    
+                            <td>@application.AppliedDate.ToShortDateString()</td>
+                            <td>
+                                @if (application.Status == "Pending")
+                                {
+                                    <div class="d-flex">
+                                        <form asp-action="ApproveApplication" method="post" style="display:inline;">
+                                            <input type="hidden" name="id" value="@application.Id" />
+                                            <button type="submit" class="btn btn-sm btn-success me-2">Approve</button>
+                                                        
+                                        </form>
+                                        <form asp-action="RejectApplication" method="post" style="display:inline;">
+                                            <input type="hidden" name="id" value="@application.Id" />
+                                            <button type="submit" class="btn btn-sm btn-danger">Reject</button>
+                                        </form>
+                                    </div>
+                                }
+                                 
+                                
+
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+    </div>
+</div>
+
+
+
+
+ @* <script>
+      async function approveApplication(applicationId, apiBaseUrl) {
+          const apiUrl = `${apiBaseUrl}/api/Notification`;
+          const notifyDto = {
+              userId: applicationId,
+              message: `Your interview for the job is scheduled on ${new Date(Date.now() + 3 * 24 * 60 * 60 * 1000).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}.`
+          };
+
+          const response = await fetch(apiUrl, {
+              method: 'POST',
+              headers: {
+                  'Content-Type': 'application/json'
+              },
+              body: JSON.stringify(notifyDto)
+          });
+
+          if (!response.ok) {
+              alert('Failed to send notification');
+              return;
+          }
+
+          // Update the application status in the UI
+          document.getElementById(`status-${applicationId}`).innerText = 'Approved';
+      }
+  </script>
+  *@

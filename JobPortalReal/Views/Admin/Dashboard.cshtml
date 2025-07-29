@@ -1,0 +1,62 @@
+﻿@model JobPortalReal.Models.AdminDashboardViewModel
+
+@{
+    ViewData["Title"] = "Admin Dashboard";
+}
+
+<div class="card mt-5 mx-auto" style="max-width: 80%;">
+    <div class="card-header bg-dark text-white">
+        <h2 class="text-center mb-0">Admin Dashboard</h2>
+    </div>
+    <div class="card-body">
+        <!-- Metrics Section -->
+        <div class="row mb-4">
+            <div class="col-md-4">
+                <div class="card text-white bg-dark mb-3" style="max-width: 20rem;">
+                    <div class="card-header">Total Users</div>
+                    <div class="card-body">
+                        <h5 class="card-title">@Model.TotalUsers</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card text-white bg-dark mb-3" style="max-width: 20rem;">
+                    <div class="card-header">Total Jobs</div>
+                    <div class="card-body">
+                        <h5 class="card-title">@Model.TotalJobs</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card text-white bg-dark mb-3" style="max-width: 20rem;">
+                    <div class="card-header">Total Applications</div>
+                    <div class="card-body">
+                        <h5 class="card-title">@Model.TotalApplications</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation Section -->
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card text-white bg-dark mb-3">
+                    <div class="card-header">Manage Users</div>
+                    <div class="card-body">
+                        <p class="card-text">View or delete user accounts.</p>
+                        <a asp-action="ManageUsers" class="btn btn-light">Go to Manage Users</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card text-white bg-dark mb-3">
+                    <div class="card-header">Manage Jobs</div>
+                    <div class="card-body">
+                        <p class="card-text">View or delete job postings.</p>
+                        <a asp-action="ManageJobs" class="btn btn-light">Go to Manage Jobs</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

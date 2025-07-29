@@ -1,0 +1,44 @@
+﻿@model JobPortalReal.Models.Job
+
+@{
+    ViewData["Title"] = "Apply for Job";
+}
+
+<div class="card mt-5 mx-auto" style="max-width: 50%;">
+    <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
+        <h2 class="mb-0">Apply for Job</h2>
+        <a asp-action="Dashboard" class="btn btn-dark">Back to Dashboard</a>
+    </div>
+    <div class="card-body">
+        <div class="card mb-3">
+            <div class="card-header">
+                Job Details
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">@Model.Title</h5>
+                <p class="card-text">@Model.Description</p>
+                <p class="card-text"><strong>Salary:</strong> @Model.Salary.ToString("C")</p>
+                <p class="card-text"><strong>Posted By:</strong> @Model.PostedBy</p>
+            </div>
+        </div>
+        
+        <form asp-action="ApplyJob" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="id" value="@Model.Id" />
+            <div class="form-group mb-3">
+                <label for="coverLetter">Cover Letter (Optional):</label>
+                <textarea name="coverLetter" class="form-control" rows="4"></textarea>
+            </div>
+
+            <div class="mb-3">
+                <label for="resumeURL" class="mb-1">Upload Resume</label>
+                
+                <input type="file" name="file" class="form-control" />
+
+                
+            </div>
+
+            <button type="submit" class="btn btn-dark">Submit Application</button>
+            <a asp-action="Dashboard" class="btn btn-dark">Cancel</a>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,57 @@
+﻿@model IEnumerable<JobPortalReal.Models.Job>
+
+@{
+    ViewData["Title"] = "Employer Dashboard";
+}
+
+<h2 class="text-center">Employer Dashboard</h2>
+
+<div class="d-flex justify-content-center mb-4">
+    <a asp-action="PostJob" class="btn btn-dark mx-2">Post New Job</a>
+    <a asp-action="ViewApplications" class="btn btn-dark mx-2">View Applications</a>
+</div>
+<div class="card mt-5 mx-auto" style="max-width: 80%;">
+    <div class="card-header bg-dark text-white">
+        <h2 class="mb-0">Posted Jobs</h2>
+    </div>
+    <div class="card-body">
+        @if (!Model.Any())
+        {
+            <div class="alert alert-warning">
+                <strong>No Jobs Posted Yet!</strong> Start posting jobs to see them here.
+            </div>
+        }
+        else
+        {
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">Title</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Salary</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var job in Model)
+                    {
+                        <tr>
+                            <td>@job.Title</td>
+                            <td>@job.Description</td>
+                            <td>@job.Salary.ToString("C", new System.Globalization.CultureInfo("en-IN"))</td>
+                            <td>
+                                <div class="d-flex">
+                                    <a asp-action="EditJob" asp-route-id="@job.Id" class="btn btn-sm btn-warning me-2">Edit</a>
+                                    <form asp-action="DeleteJob" method="post" style="display:inline;">
+                                        <input type="hidden" name="id" value="@job.Id" />
+                                        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                    </form>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+    </div>
+</div>

@@ -1,0 +1,101 @@
+﻿@model IEnumerable<JobPortalReal.Models.Notification>
+@{
+    ViewData["Title"] = "Notifications";
+    var counter = 1;
+}
+<div class="card mt-5 mx-auto" style="max-width: 80%;">
+    <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
+        <h2 class="mb-0">Notifications</h2>
+        <a asp-action="Dashboard" class="btn btn-dark">Back to Dashboard</a>
+    </div>
+    <div class="card-body">
+        @if (!Model.Any())
+        {
+            <div class="alert alert-info">
+                <strong>No Notifications!</strong> You don't have any notifications at the moment.
+            </div>
+        }
+        else
+        {
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">S.no</th>
+                        <th scope="col">Message</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var notification in Model)
+                    {
+                        <tr class="@(notification.IsRead ? "read-notification" : "unread-notification")">
+                            <td>@counter</td>
+                            <td>@notification.Message</td>
+                            <td>@notification.CreatedDate.ToString("MMMM dd, yyyy HH:mm")</td>
+                            <td>
+                                <div class="d-flex">
+                                    @if (!notification.IsRead)
+                                    {
+                                        <button type="button" class="btn btn-success btn-sm me-2" onclick="markAsRead(@notification.Id)">Mark as Read</button>
+                                    }
+                                    <button type="button" class="btn btn-danger btn-sm" onclick="deleteNotification(@notification.Id)">Delete</button>
+                                </div>
+                            </td>
+                        </tr>
+                        counter++;
+                    }
+                </tbody>
+            </table>
+        }
+    </div>
+</div>
+
+<style>
+    .read-notification {
+        background-color: #f0f0f0; /* Light gray background for read notifications */
+        color: #888; /* Gray text color for read notifications */
+    }
+
+    .unread-notification {
+        background-color: #fff; /* White background for unread notifications */
+        color: #000; /* Black text color for unread notifications */
+        font-weight: bold; /* Bold text for unread notifications */
+    }
+</style>
+
+<script>
+    async function deleteNotification(id) {
+        try {
+            console.log("Notification ID:", id);
+            const response = await fetch(`https://localhost:7238/api/Notification/${id}`, {
+                method: 'DELETE'
+            });
+            if (response.ok) {
+                location.reload(); // Reload the page to reflect the changes
+            } else {
+                const errorText = await response.text();
+                alert(`Failed to delete notification: ${errorText}`);
+            }
+        } catch (error) {
+            alert(`Failed to delete notification: ${error.message}`);
+        }
+    }
+
+    async function markAsRead(id) {
+        try {
+            console.log("Notification ID:", id);
+            const response = await fetch(`https://localhost:7238/api/Notification/markasread/${id}`, {
+                method: 'PUT'
+            });
+            if (response.ok) {
+                location.reload(); // Reload the page to reflect the changes
+            } else {
+                const errorText = await response.text();
+                alert(`Failed to mark notification as read: ${errorText}`);
+            }
+        } catch (error) {
+            alert(`Failed to mark notification as read: ${error.message}`);
+        }
+    }
+</script>

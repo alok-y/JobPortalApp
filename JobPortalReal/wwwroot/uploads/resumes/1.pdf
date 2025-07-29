@@ -1,0 +1,51 @@
+R
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Rebuild started at 6:08 PM...
+1>------ Rebuild All started: Project: JobPortalWebApp, Configuration: Debug Any CPU ------
+Restored C:\Users\2369965\source\repos\JobPortalWebApp\JobPortalWebApp.csproj (in 5.42 sec).
+1>C:\Users\2369965\source\repos\JobPortalWebApp\JobPortalWebApp.csproj : warning NU1900: Error occurred while getting package vulnerability data: Unable to load the service index for source https://api.nuget.org/v3/index.json.
+1>C:\Users\2369965\source\repos\JobPortalWebApp\Models\User.cs(6,23,6,32): warning CS8618: Non-nullable property 'FirstName' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the property as nullable.
+1>C:\Users\2369965\source\repos\JobPortalWebApp\Models\User.cs(7,23,7,31): warning CS8618: Non-nullable property 'LastName' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the property as nullable.
+1>C:\Users\2369965\source\repos\JobPortalWebApp\Models\User.cs(8,23,8,28): warning CS8618: Non-nullable property 'Email' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the property as nullable.
+1>C:\Users\2369965\source\repos\JobPortalWebApp\Models\User.cs(9,23,9,35): warning CS8618: Non-nullable property 'PasswordHash' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the property as nullable.
+1>C:\Users\2369965\source\repos\JobPortalWebApp\Models\User.cs(10,23,10,27): warning CS8618: Non-nullable property 'Role' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the property as nullable.
+1>C:\Users\2369965\source\repos\JobPortalWebApp\Models\JobseekerProfile.cs(7,23,7,29): warning CS8618: Non-nullable property 'Skills' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the property as nullable.
+1>C:\Users\2369965\source\repos\JobPortalWebApp\Models\JobseekerProfile.cs(8,23,8,32): warning CS8618: Non-nullable property 'Education' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the property as nullable.
+1>C:\Users\2369965\source\repos\JobPortalWebApp\Models\JobseekerProfile.cs(9,23,9,40): warning CS8618: Non-nullable property 'ExperienceDetails' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the property as nullable.
+1>C:\Users\2369965\source\repos\JobPortalWebApp\Models\AccountManagement.cs(7,23,7,34): warning CS8618: Non-nullable property 'ActionTaken' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the property as nullable.
+1>C:\Users\2369965\source\repos\JobPortalWebApp\Models\AccountManagement.cs(8,23,8,30): warning CS8618: Non-nullable property 'Remarks' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the property as nullable.
+1>C:\Users\2369965\source\repos\JobPortalWebApp\Models\Application.cs(8,23,8,25): warning CS8618: Non-nullable property 'CV' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the property as nullable.
+1>C:\Users\2369965\source\repos\JobPortalWebApp\Models\JobPost.cs(7,23,7,28): warning CS8618: Non-nullable property 'Title' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the property as nullable.
+1>C:\Users\2369965\source\repos\JobPortalWebApp\Models\JobPost.cs(8,23,8,34): warning CS8618: Non-nullable property 'Description' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the property as nullable.
+1>C:\Users\2369965\source\repos\JobPortalWebApp\Models\JobPost.cs(9,23,9,31): warning CS8618: Non-nullable property 'Location' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the property as nullable.
+1>C:\Users\2369965\source\repos\JobPortalWebApp\Models\JobPost.cs(10,23,10,33): warning CS8618: Non-nullable property 'Experience' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the property as nullable.
+1>C:\Users\2369965\source\repos\JobPortalWebApp\Models\EmployerProfile.cs(7,23,7,34): warning CS8618: Non-nullable property 'CompanyName' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the property as nullable.
+1>C:\Users\2369965\source\repos\JobPortalWebApp\Models\EmployerProfile.cs(8,23,8,41): warning CS8618: Non-nullable property 'CompanyDescription' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the property as nullable.
+1>C:\Users\2369965\source\repos\JobPortalWebApp\Models\EmployerProfile.cs(10,23,10,38): warning CS8618: Non-nullable property 'CompanyLocation' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the property as nullable.
+1>C:\Users\2369965\source\repos\JobPortalWebApp\Models\EmployerProfile.cs(11,23,11,36): warning CS8618: Non-nullable property 'ContactNumber' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the property as nullable.
+1>JobPortalWebApp -> C:\Users\2369965\source\repos\JobPortalWebApp\bin\Debug\net8.0\JobPortalWebApp.dll
+1>Done building project "JobPortalWebApp.csproj".
+========== Rebuild All: 1 succeeded, 0 failed, 0 skipped ==========
+========== Rebuild completed at 6:08 PM and took 06.439 seconds ==========

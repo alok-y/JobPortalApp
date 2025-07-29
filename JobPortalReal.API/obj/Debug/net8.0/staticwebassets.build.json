@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "Hz8g2r8LRMwJAIc8TD/dikzFVWhX4JOTtDNMDD1SJQg=",
+  "Source": "JobPortalReal.API",
+  "BasePath": "_content/JobPortalReal.API",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

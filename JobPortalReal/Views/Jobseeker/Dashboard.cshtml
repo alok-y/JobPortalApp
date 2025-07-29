@@ -1,0 +1,91 @@
+﻿@model IEnumerable<JobPortalReal.Models.Job>
+@using System.Globalization
+
+
+
+@{
+    ViewData["Title"] = "Jobseeker Dashboard";
+}
+
+<h2 class="text-center">Jobseeker Dashboard</h2>
+<div class="d-flex justify-content-center mb-4">
+    <a asp-action="ViewJobs" class="btn btn-dark mx-2">Available Jobs</a>
+    <a asp-action="JobStatus" class="btn btn-dark mx-2">My Applications</a>
+    <a asp-action="Notifications" class="btn btn-dark mx-2">View Notifications</a>
+</div>
+
+<div class="card mt-5 mx-auto" style="max-width: 80%;">
+    <div class="card-header bg-dark text-white">
+        <h2>Browse Jobs</h2>
+    </div>
+    <div class="card-body">
+        <!-- Search Bar -->
+        <form asp-action="Dashboard" method="get" class="mb-4">
+            <div class="row">
+                <div class="col-md-4">
+                    <input type="text" name="searchQuery" value="@ViewBag.SearchQuery" class="form-control" placeholder="Search by title..." />
+                </div>
+                <div class="col-md-3">
+                    <input type="number" name="minSalary" value="@ViewBag.MinSalary" class="form-control" placeholder="Min Salary" />
+                </div>
+                <div class="col-md-3">
+                    <input type="number" name="maxSalary" value="@ViewBag.MaxSalary" class="form-control" placeholder="Max Salary" />
+                </div>
+                <div class="col-md-2">
+                    <button type="submit" class="btn btn-dark">Search</button>
+                </div>
+            </div>
+        </form>
+        <!-- Job Listing -->
+        @if (!Model.Any())
+        {
+            <div class="alert alert-warning">
+                <strong>No jobs available!</strong> Please refine your search criteria.
+            </div>
+        }
+        else
+        {
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">Title</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Salary</th>
+                        <th scope="col">Posted By</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var job in Model)
+                    {
+                        <tr>
+                            <td>@job.Title</td>
+                            <td>@job.Description</td>
+                            <td>@job.Salary.ToString("C", new CultureInfo("en-IN"))</td>
+                            <td>@job.PostedBy</td>
+                            <td>
+                                <a asp-action="ApplyJob" asp-route-id="@job.Id" class="btn btn-sm btn-dark">Apply</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        <!-- Pagination Controls -->
+        @if (ViewBag.TotalPages > 1)
+        {
+            <nav>
+                <ul class="pagination">
+                    @for (int i = 1; i <= ViewBag.TotalPages; i++)
+                    {
+                        <li class="page-item @(i == ViewBag.CurrentPage ? "active" : "")">
+                            <a class="page-link" asp-action="Dashboard" asp-route-page="@i" asp-route-searchQuery="@ViewBag.SearchQuery" asp-route-minSalary="@ViewBag.MinSalary" asp-route-maxSalary="@ViewBag.MaxSalary">
+                                @i
+                            </a>
+                        </li>
+                    }
+                </ul>
+            </nav>
+        }
+    </div>
+</div>

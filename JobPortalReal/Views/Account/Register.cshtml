@@ -1,0 +1,40 @@
+﻿@model JobPortalReal.Models.RegisterViewModel
+
+<div class="card mt-5" style="max-width: 30rem; margin: auto; min-height: 500px;">
+    <div class="card-header bg-dark text-white">
+        <h2>Register</h2>
+    </div>
+    <div class="card-body d-flex flex-column justify-content-center">
+        <form asp-controller="Account" asp-action="Register" method="post">
+            @Html.AntiForgeryToken()
+            <div class="form-group mb-3">
+                <label for="fullName">Full Name</label>
+                <input type="text" asp-for="FullName" class="form-control" />
+                <span asp-validation-for="FullName" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label for="email">Email</label>
+                <input type="email" asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label for="password">Password</label>
+                <input type="password" asp-for="Password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label for="role">Role</label>
+                <select asp-for="Role" class="form-control">
+                    <option value="Jobseeker">Jobseeker</option>
+                    <option value="Employer">Employer</option>
+                </select>
+                <span asp-validation-for="Role" class="text-danger"></span>
+            </div>
+
+            <button type="submit" class="btn btn-dark">Register</button>
+        </form>
+    </div>
+</div>

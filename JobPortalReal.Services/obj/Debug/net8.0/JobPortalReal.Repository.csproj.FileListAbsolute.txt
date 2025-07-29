@@ -1,0 +1,17 @@
+C:\Users\2369965\Downloads\repos\repos\JobPortalReal.Services\bin\Debug\net8.0\JobPortalReal.Repository.deps.json
+C:\Users\2369965\Downloads\repos\repos\JobPortalReal.Services\bin\Debug\net8.0\JobPortalReal.Repository.dll
+C:\Users\2369965\Downloads\repos\repos\JobPortalReal.Services\bin\Debug\net8.0\JobPortalReal.Repository.pdb
+C:\Users\2369965\Downloads\repos\repos\JobPortalReal.Services\bin\Debug\net8.0\JobPortalReal.DataAccess.dll
+C:\Users\2369965\Downloads\repos\repos\JobPortalReal.Services\bin\Debug\net8.0\JobPortalReal.Models.dll
+C:\Users\2369965\Downloads\repos\repos\JobPortalReal.Services\bin\Debug\net8.0\JobPortalReal.DataAccess.pdb
+C:\Users\2369965\Downloads\repos\repos\JobPortalReal.Services\bin\Debug\net8.0\JobPortalReal.Models.pdb
+C:\Users\2369965\Downloads\repos\repos\JobPortalReal.Services\obj\Debug\net8.0\JobPortalReal.Repository.csproj.AssemblyReference.cache
+C:\Users\2369965\Downloads\repos\repos\JobPortalReal.Services\obj\Debug\net8.0\JobPortalReal.Repository.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\2369965\Downloads\repos\repos\JobPortalReal.Services\obj\Debug\net8.0\JobPortalReal.Repository.AssemblyInfoInputs.cache
+C:\Users\2369965\Downloads\repos\repos\JobPortalReal.Services\obj\Debug\net8.0\JobPortalReal.Repository.AssemblyInfo.cs
+C:\Users\2369965\Downloads\repos\repos\JobPortalReal.Services\obj\Debug\net8.0\JobPortalReal.Repository.csproj.CoreCompileInputs.cache
+C:\Users\2369965\Downloads\repos\repos\JobPortalReal.Services\obj\Debug\net8.0\JobPorta.BA7CCBC4.Up2Date
+C:\Users\2369965\Downloads\repos\repos\JobPortalReal.Services\obj\Debug\net8.0\JobPortalReal.Repository.dll
+C:\Users\2369965\Downloads\repos\repos\JobPortalReal.Services\obj\Debug\net8.0\refint\JobPortalReal.Repository.dll
+C:\Users\2369965\Downloads\repos\repos\JobPortalReal.Services\obj\Debug\net8.0\JobPortalReal.Repository.pdb
+C:\Users\2369965\Downloads\repos\repos\JobPortalReal.Services\obj\Debug\net8.0\ref\JobPortalReal.Repository.dll

@@ -1,0 +1,45 @@
+﻿@model JobPortalReal.Models.Job
+
+@{
+    ViewData["Title"] = "Edit Job";
+}
+
+<div class="card mt-5 mx-auto" style="max-width: 50%;">
+    <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
+        <h2 class="mb-0">Edit Job</h2>
+        <a asp-action="Dashboard" class="btn btn-dark">Back to Dashboard</a>
+    </div>
+    <div class="card-body">
+        <form asp-action="EditJob" method="post">
+            <input asp-for="PostedBy" value="@Model.PostedBy" hidden />
+            <div class="form-group mb-3">
+                <label asp-for="Title" class="control-label"></label>
+                <input asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="Description" class="control-label"></label>
+                <textarea asp-for="Description" class="form-control"></textarea>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="Salary" class="control-label"></label>
+                <input asp-for="Salary" type="number" step="0.01" class="form-control" />
+                <span asp-validation-for="Salary" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-dark">Save Changes</button>
+                <a asp-action="Dashboard" class="btn btn-dark">Cancel</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
